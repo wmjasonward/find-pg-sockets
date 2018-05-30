@@ -28,5 +28,7 @@ npm test
 
 ## Release History
 
+* 0.0.2
+    * Removed .idea files from npm package
 * 0.0.1
     * Works as expected, needs better release docs and samples
