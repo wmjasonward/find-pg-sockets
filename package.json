@@ -3,6 +3,11 @@
   "version": "0.0.2",
   "description": "Utility to locate PostgreSQL Unix Domain Sockets",
   "main": "index.js",
+  "files" : [
+    "index.js",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
     "test": "jest"
   },
