@@ -33,9 +33,12 @@ This example can be found in the 'examples/node-postgres-host' directory in the 
  with node-postgres to connect to the local postgres server without
  hardcoding the socket file directory, or setting PG_HOST
 
- For this to work, this must be run as an operating system
+ For this example to work, this must be run as an operating system
  user with access to a postgres database with the same
- name as the user on the same system over the unix domain socket
+ name as the user on the same system over the unix domain socket.
+
+ It is possible to also specify user, password, database, etc for
+ the client.
 
  */
 
