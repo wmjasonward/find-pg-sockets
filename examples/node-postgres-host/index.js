@@ -1,31 +1,3 @@
-# find-pg-sockets
-
-> Small utility to locate the PostgreSQL unix domain socket file(s) on *nix and bsd hosts.
-
-This utility executes 'netstat -a' and looks for any PostgreSQL server sockets.
-It is primarily intended to be used by developers that have Postgres running on
-their local machine and want to connect to their local Postgres server (using node-postgres)
-over the domain socket, rather than tcp.
-
-This is standalone part of a larger framework I'm working on releasing. 
-
-## Installation
-
-OS X & Linux:
-
-```sh
-npm install find-pg-sockets --save
-```
-
-Windows:
-
-This is not for Windows.
-
-## Usage example
-
-This example can be found in the 'examples/node-postgres-host' directory in the repo:
-
-```
 'use strict';
 
 /**
@@ -33,9 +5,12 @@ This example can be found in the 'examples/node-postgres-host' directory in the 
  with node-postgres to connect to the local postgres server without
  hardcoding the socket file directory, or setting PG_HOST
 
- For this to work, this must be run as an operating system
+ For this example to work, this must be run as an operating system
  user with access to a postgres database with the same
- name as the user on the same system over the unix domain socket
+ name as the user on the same system over the unix domain socket.
+
+ It is possible to also specify user, password, database, etc for
+ the client.
 
  */
 
@@ -82,23 +57,3 @@ findpgsockets(function(err, sockets) {
     }
   }
 });
-
-
-``` 
-
-## Development setup
-
-Node >= v6 is required for running tests.
-
-```
-npm test
-```
-
-## Release History
-
-* 0.0.3
-    * Added example usage to repo
-* 0.0.2
-    * Removed .npmignore and included "files" in package.json
-* 0.0.1
-    * Works as expected, needs better release docs and samples
