@@ -67,7 +67,7 @@ var tests = [
 ];
 
 
-/** old school loopity :) gotta love pre es6 */
+// todo: reimplement with describe.each
 for (var t = 0; t < tests.length; t++) {
   var curtest = tests[t];
 

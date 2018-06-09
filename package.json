@@ -1,6 +1,6 @@
 {
   "name": "find-pg-sockets",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Utility to locate PostgreSQL Unix Domain Sockets",
   "main": "index.js",
   "files": [
