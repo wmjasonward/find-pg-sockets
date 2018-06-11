@@ -21,24 +21,21 @@ function connectToPostgres(socketDir) {
   var client = new PgClient({
     host: socketDir
   });
-  var connected = true;
+
   client.connect(function(err) {
     if (err) {
       console.log(err);
-      connected = false;
+    } else {
+      client.query('SELECT current_database() as db', function(err, res) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('Successfully connected to database (' + res.rows[0].db + ')');
+        }
+        client.end();
+      });
     }
   });
-
-  if (connected) {
-    client.query('SELECT current_database() as db', function(err, res) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log('Successfully connected to database (' + res.rows[0].db + ')');
-      }
-      client.end();
-    });
-  }
 }
 
 findpgsockets(function(err, sockets) {

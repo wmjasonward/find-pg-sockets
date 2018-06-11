@@ -7,7 +7,7 @@ It is primarily intended to be used by developers that have Postgres running on
 their local machine and want to connect to their local Postgres server (using node-postgres)
 over the domain socket, rather than tcp.
 
-This is standalone part of a larger framework I'm working on releasing. 
+This is standalone part of a larger framework I'm working on releasing.
 
 ## Installation
 
@@ -49,24 +49,21 @@ function connectToPostgres(socketDir) {
   var client = new PgClient({
     host: socketDir
   });
-  var connected = true;
+
   client.connect(function(err) {
     if (err) {
       console.log(err);
-      connected = false;
+    } else {
+      client.query('SELECT current_database() as db', function(err, res) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('Successfully connected to database (' + res.rows[0].db + ')');
+        }
+        client.end();
+      });
     }
   });
-
-  if (connected) {
-    client.query('SELECT current_database() as db', function(err, res) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log('Successfully connected to database (' + res.rows[0].db + ')');
-      }
-      client.end();
-    });
-  }
 }
 
 findpgsockets(function(err, sockets) {
@@ -84,7 +81,7 @@ findpgsockets(function(err, sockets) {
 });
 
 
-``` 
+```
 
 ## Development setup
 
@@ -96,8 +93,10 @@ npm test
 
 ## Release History
 
+* 0.0.5
+    * Fix callback issue in example program
 * 0.0.4
-        Version bump with some comment changes for clarification
+    * Version bump with some comment changes for clarification
 * 0.0.3
     * Added example usage to repo
 * 0.0.2
