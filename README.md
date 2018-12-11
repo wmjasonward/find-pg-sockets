@@ -93,6 +93,8 @@ npm test
 
 ## Release History
 
+* 0.0.6
+    * Updated dev dependencies due to vulnerability in merge
 * 0.0.5
     * Fix callback issue in example program
 * 0.0.4
