@@ -42,7 +42,7 @@ This example can be found in the 'examples/node-postgres-host' directory in the 
 var dirname = require('path').dirname;
 
 var PgClient = require('pg').Client;
-var findpgsockets = require('../../index.js');
+var findpgsockets = require('find-pg-sockets');
 
 function connectToPostgres(socketDir) {
   console.log('Attempting to connect to postgres using socketDir (' + socketDir + ')');
