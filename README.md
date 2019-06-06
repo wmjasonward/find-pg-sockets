@@ -93,6 +93,8 @@ npm test
 
 ## Release History
 
+* 0.0.7
+    * Updated dependencies to upstream vulnerability
 * 0.0.6
     * Updated dev dependencies due to vulnerability in merge
 * 0.0.5
